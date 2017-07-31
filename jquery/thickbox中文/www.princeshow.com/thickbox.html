@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Description" content="ThickBox is a webpage UI dialog widget written in javascript on top of the jQuery library. It's function is too show a single image, multiple images, inline content, iframed content, and content served through AJAX in a hybrid modal." />
+<meta name="author" content="Cody Lindley" />
+<meta name="robots" content="all" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta http-equiv="imagetoolbar" content="false" />
+
+<title>ThickBox 2.0</title>
+
+<style type="text/css" media="all">
+@import "css/global.css";
+@import "thickbox-code/thickbox.css";
+</style>
+
+<link rel="alternate stylesheet" type="text/css" href="css/1024.css" title="1024 x 768" />
+
+<script src="js/jquery-compressed.js" type="text/javascript"></script>
+<script src="thickbox-code/thickbox.js" type="text/javascript"></script>
+<script src="js/global.js" type="text/javascript"></script>
+</head>
+
+<body id="pageTop">
+
+<div id="pageContent"><!-- pageContent -->
+
+<h1>ThickBox <span>2.0</span></h1>
+<div id="tag">由 <a href="http://www.codylindley.com">Cody Lindley</a> 使用 <a href="http://www.jquery.com">jQuery</a> 开发 译: <a href="mailto:minicroc@gmail.com">croc</a> [ 阅读<a href="http://jquery.com/demo/thickbox/">原文</a> ] </div>
+<div id="description">ThickBox 是基于 <a href="http://www.jquery.com">jQuery</a> 用 JavaScript 编写的网页UI对话窗口小部件. 它可以用来展示单一图片, 若干图片, 内嵌的内容, iframed的内容, 或以 <a href="http://en.wikipedia.org/wiki/AJAX">AJAX</a> 的混合 <a href="http://en.wikipedia.org/wiki/Modal_window">modal</a> 提供的内容.</div>
+
+<ul id="navigation">
+	<li class="divide"><a href="#overview" id="overviewBtn">概要</a></li>
+	<li class="divide"><a href="#examples" id="examplesBtn">例子</a></li>
+	<li class="divide">Q &amp; A (略)</li>
+	<li class="divide">Support (略)</li>
+	<li>Donate (略)</li>
+</ul>
+
+<h2 id="overviewTitle"><span class="header">概要</span><a href="#" rel="overview" class="toggleBtn" id="toggleBtnOverview">-</a></h2>
+<div class="lineDivide">&nbsp;</div>
+
+<div id="overview"><!-- overview -->
+
+	<div class="roundbox">
+		<h3>特性:</h3>
+		<ul>
+		<li>ThickBox 是用超轻量级的 <a href="http://www.jquery.com">jQuery 库</a> 编写的. 压缩过 jQuery 库只<span class="callout">15k</span>, 未压缩过的有39k.</li>
+		<li>ThickBox 的 JavaScript 代码和 CSS 文件只占12k. 所以压缩过的 jQuery 代码和 ThickBox 总共只有<span class="callout">27k</span>.</li>
+		<li>ThickBox 能重新调整大于浏览器窗口的图片.</li>
+		<li>ThickBox 的多功能性包括 (图片, iframed 的内容, 内嵌的内容, 和 AJAX 的内容).</li>
+		<li>ThickBox 能隐藏 Windows IE 6 里的元素.</li>
+		<li>ThickBox 能在使用者滚动页面或改变浏览器窗口大小的同时始终保持居中. 点击图片, 覆盖层, 或关闭链接能移除 ThickBox.</li>
+		<li>ThickBox 的创作者决定动画应该因人而异, 所以 ThickBox 不再使用动画了. 这是特性吗? 哦, 有人说是呀.</li>
+		</ul>
+	</div>
+	
+	<div id="container-1" class="greyTabs">
+		<ul class="anchors" style="width:100%">
+			<li><a href="#sectiona-1">下载</a></li>
+			<li><a href="#sectiona-2">ThickBox.js</a></li>
+			<li><a href="#sectiona-3">ThickBox.css</a></li>
+			<li><a href="#sectiona-4">loadingAnimation.gif</a></li>
+		</ul>
+		<div id="sectiona-1" class="anchor">
+			<p>
+				下载 <a href="thickbox-code/thickbox.js">ThickBox.js</a>, <a href="thickbox-code/thickbox.css">ThickBox.css</a>, 和装载图片 (<a href="images/loadingAnimation.gif">loadingAnimation.gif</a>) 到你的本地计算机 (或从 tabs 中复制和粘贴). 有了这三个文件, 还有一个 <a href="http://jQuery.com/src/jquery-1.0a.js">1.0 alpha jQuery 库</a> 也是必要的. 对本站来说, 我使用的是 <a href="js/jquery-compressed.js">压缩版的 jQuery,</a> 我是用 <a href="http://dean.edwards.name/packer/">Dean Edwards' Packer</a> 压缩的. 你可以从 <a href="http://jQuery.com/src/jquery-1.0a.js">http://jQuery.com/src/jquery-1.0a.js</a> (未压缩过的) 下载一个 jQuery 1.0 alpha 的拷贝. </p>
+				<p><strong><a href="thickbox2.0.zip">下载打包的所有文件及教程</a></strong></p>
+		</div>
+		<div id="sectiona-2" class="anchor">
+			<pre class="tabscode"><code class="javascript" id="ajaxJS">Loading...</code></pre>
+		</div>
+		<div id="sectiona-3" class="anchor">
+			<pre class="tabscode"><code class="css" id="ajaxCSS">Loading...</code></pre>
+		</div>
+		<div id="sectiona-4" class="anchor">
+		<h5>Right Click and Download:</h5>
+			<p><img src="images/loadingAnimation.gif" alt="Loading Animation Image" /></p>	
+		</div>
+	</div>
+	<div style="clear:both; line-height:0; height:0">&nbsp;</div><!-- safari fix -->
+	<div class="roundbox">
+		<h3>如何实现 ThickBox :</h3>
+			<p>1. ThickBox 要求使用 jQuery JavaScript 库; 正因如此, 你需要外调 jquery.js 文件在你的网页的 head 元素内, 接着还要外调 thickbox.js 文件 (注意: jquery.js 必须放在调用资源的第一位). 例子如下:</p>
+			
+<pre class="normal"><code class="html">&lt;script type=&quot;text/javascript&quot; src=&quot;path-to-file/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;path-to-file/thickbox.js&quot;&gt;&lt;/script&gt;</code></pre>
+			
+			<p>一旦你外调了 .js 文件, 打开 <a href="thickbox-code/thickbox.js">thickbox.js</a> 并寻找加载图片的名字 (<a href="images/loadingAnimation.gif">loadingAnimation.gif</a>). 找到后, 根据它在你服务器上的位置确定更改它的路径.</p>
+			
+			<p>2. 在你的网页中外调 ThickBox CSS 文件. 例子如下:</p>
+			
+			<pre class="normal"><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;path-to-file/thickbox.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;</code></pre>
+			
+			<p><strong>或</strong></p>
+			
+			<pre class="normal"><code class="html">&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;path-to-file/thickbox.css&quot;;&lt;/style&gt;</code></pre>
+			
+			<p><strong>或</strong>, 打开 <a href="thickbox-code/thickbox.css">thickbox.css</a> 文件并复制粘贴样式到你现有的样式表中.</p>
+			
+			<p>3. 观看例子, 学习使用不同的方法调用 ThickBox 的功能.</p>
+	</div>
+	
+	<div class="roundbox">
+		<h3>支持的和经测试过的浏览器</h3>
+		<p>Windows IE 6.0, Windows FF 1.5.0.5, Windows Opera 9.0, Macintosh Safari 1.3.2 &amp; 2.0.3, Macintosh FF 1.5</p>
+	
+	</div>
+	
+	<div class="roundbox">
+	<h3>MIT 许可</h3>
+	<p><a href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a></p>
+<p>许可特此批出, 免费, 给任何人提供此软件的拷贝和他相关文档中的(&quot;软件&quot;), 使用此软件不受任何限制, 所不受的限制包括: 有权利使用, 拷贝, 修改, 合并, 出版, 分发, 颁发从属许可, 和/或买卖该软件的拷贝.</p>
+	</div>	
+	
+	<div class="roundbox">
+		<h3>修改日志</h3>
+		<p class="changeDate">到 08/03/2006 为止</p>
+		<ul>
+			<li>添加了 greybox 功能 (iframed 的内容)</li>
+			<li>在 ThickBox 中为 iframed 的, 内嵌的, 和 ajax 的内容添加了标题</li>
+			<li>添加了图片集功能 (能用键盘的左右键导航) </li>
+			<li>为 ThickBox 准备了新的 (单独的) CSS 文件</li>
+			<li>修补了当第一次加载 ThickBox 时, Firefox 的缓冲问题</li>
+			<li>清理并优化了 thickbox.js 文件</li>
+			<li>为 ThickBox 添加了新的文件扩展名 .bmp</li>
+			<li>删除了 ThickBox 的固定高度, 因此当有两行说明的时候将会垂直地延伸窗口</li>
+		</ul>
+		<p class="changeDate">到 07/06/2006 为止</p>
+		<ul>
+			<li>添加了在 ThickBox 中使用内嵌 div 元素的能力</li>
+			<li>添加了使用大小写字母为扩展名的能力</li>
+			<li>使加载动画居中并忽略竖向滚动条</li>
+			<li>在 IE 里, 当 ThickBox 打开时, 选择盒子隐藏了</li>
+			<li>修补了当 anchor 元素没有标题是发生的问题</li>
+			<li>修补了当覆盖层在加载动画时覆盖屏幕的问题 (针对 FF 和 Opera)</li>
+			<li>使用了新的 jQuery 1.0 – Alpha 版本</li>
+		</ul>
+	</div>
+
+	<div style="clear:both"><a href="#" class="BTT">回到顶部</a></div>
+	
+</div><!-- /overview -->
+
+<h2 id="examplesTitle"><span class="header">例子</span><a href="#" rel="examples" class="toggleBtn" id="toggleBtnExample">-</a></h2>
+<div class="lineDivide">&nbsp;</div>
+
+<div id="examples"><!-- examples -->
+
+	<div id="container-2">
+		<ul class="anchors" style="width:100%">
+			<li><a href="#sectionb-1">单一图片</a></li>
+			<li><a href="#sectionb-2">演示</a></li>
+			<li><a href="#sectionb-3">html</a></li>
+		</ul>
+		<div id="sectionb-1" class="anchor">
+			<h5 class="hfivepadding">描述:</h5>
+			<p>
+				这是 ThickBox 最简单的功能. 此例子放了一张图片在  ThickBox 里. (参看演示 tab)
+			</p>
+			<h5>使用说明:</h5>
+			<ul>
+				<li>创建一个 link 元素 (&lt;a href&gt;)</li>
+				<li>给 link 一个 class 属性并附值为 thickbox (class=&quot;thickbox&quot;)</li>
+				<li>在 href 属性里给图片文件 (.jpg .jpeg .png .gif .bmp) 提供一个路径</li>
+			</ul>
+		</div>
+		<div id="sectionb-2" class="anchor">
+		<h5>点击图片:</h5>
+			<p><a href="images/single.jpg" title="add a caption to title attribute / or leave blank" class="thickbox"><img src="images/single_t.jpg" alt="Image 2"/></a></p>
+		</div>
+		<div id="sectionb-3" class="anchor">
+		<pre class="tabscode" style="height:50px;"><code class="html">&lt;a href=&quot;images/single.jpg&quot; title=&quot;add a caption to title attribute / or leave blank&quot; class=&quot;thickbox&quot;&gt;&lt;img src=&quot;images/single_t.jpg&quot; alt=&quot;Single Image&quot;/&gt;&lt;/a&gt;</code></pre>
+		</div>
+	</div>
+	
+	<div id="container-3">
+		<ul class="anchors" style="width:100%">
+			<li><a href="#sectionc-1">图片集</a></li>
+			<li><a href="#sectionc-2">演示</a></li>
+			<li><a href="#sectionc-3">html</a></li>
+		</ul>
+		<div id="sectionc-1" class="anchor">
+			<h5 class="hfivepadding">描述:</h5>
+			<p>
+				这个例子就和展示单一图片的功能一样, 只是除了使用了 rel 属性集合了图片, 所以在 ThickBox 中它们能被导航. 最理想的使用对象就是图片集. 
+			</p>
+			<h5>使用说明:</h5>
+			<ul>
+				<li>创建一个 link 元素 (&lt;a href&gt;)</li>
+				<li>给 link 一个 class 属性并附值为 thickbox (class=&quot;thickbox&quot;)</li>
+				<li>在 href 属性里给图片文件 (.jpg .jpeg .png .gif .bmp) 提供一个路径</li>
+				<li>给每个 link 元素里添加一个 rel 元素并附上相同的值. (例如: rel=&quot;gallery-plants&quot;)</li>
+			</ul>
+			<h5>重要提示:</h5>
+			<p>当你打开 ThickBox 图片集时, 你能用键盘的左右箭头键向前和向前和向后导航 (在 ThickBox 里也提供了下一页和上一页的链接). 图片将会在画廊中按 HTML 文档流程从第一张显示到最后一张.</p>
+		</div>
+		<div id="sectionc-2" class="anchor">
+		<h5 class="hfivepadding">点击图片:</h5>
+			<p>
+			<a href="images/plant1.jpg" title="add a caption to title attribute / or leave blank" class="thickbox" rel="gallery-plants"><img src="images/plant1_t.jpg" alt="Plant 1" /></a>
+&nbsp;
+<a href="images/plant2.jpg" title="add a caption to title attribute / or leave blank" class="thickbox" rel="gallery-plants"><img src="images/plant2_t.jpg" alt="Plant 2" /></a>
+&nbsp;
+<a href="images/plant3.jpg" title="add a caption to title attribute / or leave blank" class="thickbox" rel="gallery-plants"><img src="images/plant3_t.jpg" alt="Plant 3" /></a>
+&nbsp;
+<a href="images/plant4.jpg" title="add a caption to title attribute / or leave blank" class="thickbox" rel="gallery-plants"><img src="images/plant4_t.jpg" alt="Plant 4" /></a>
+			</p>
+		</div>
+		<div id="sectionc-3" class="anchor">
+		<pre class="tabscode" style="height:100px;"><code class="html">&lt;a href=&quot;images/plant1.jpg&quot; title=&quot;add a caption to title attribute / or leave blank&quot; class=&quot;thickbox&quot; rel=&quot;gallery-plants&quot;&gt;&lt;img src=&quot;images/plant1_t.jpg&quot; alt=&quot;Plant 1&quot; /&gt;&lt;/a&gt;&nbsp;
+&lt;a href=&quot;images/plant2.jpg&quot; title=&quot;add a caption to title attribute / or leave blank&quot; class=&quot;thickbox&quot; rel=&quot;gallery-plants&quot;&gt;&lt;img src=&quot;images/plant2_t.jpg&quot; alt=&quot;Plant 2&quot; /&gt;&lt;/a&gt;&nbsp;
+&lt;a href=&quot;images/plant3.jpg&quot; title=&quot;add a caption to title attribute / or leave blank&quot; class=&quot;thickbox&quot; rel=&quot;gallery-plants&quot;&gt;&lt;img src=&quot;images/plant3_t.jpg&quot; alt=&quot;Plant 3&quot; /&gt;&lt;/a&gt;&nbsp;
+&lt;a href=&quot;images/plant4.jpg&quot; title=&quot;add a caption to title attribute / or leave blank&quot; class=&quot;thickbox&quot; rel=&quot;gallery-plants&quot;&gt;&lt;img src=&quot;images/plant4_t.jpg&quot; alt=&quot;Plant 4&quot; /&gt;&lt;/a&gt;</code></pre>
+		</div>
+	</div>
+	
+	<div id="container-4">
+		<ul class="anchors" style="width:100%">
+			<li><a href="#sectiond-1">内嵌的内容</a></li>
+			<li><a href="#sectiond-2">演示</a></li>
+			<li><a href="#sectiond-3">html</a></li>
+		</ul>
+		<div id="sectiond-1" class="anchor">
+			<h5 class="hfivepadding">描述:</h5>
+			<p>
+				不管页面上隐藏的或显示中的内嵌内容都能被放到 ThickBox 中.
+			</p>
+			<h5>使用说明:</h5>
+			<ul>
+				<li>创建一个 link 元素 (&lt;a href&gt;)</li>
+				<li>给 link 一个 class 属性并附值为 thickbox (class=&quot;thickbox&quot;)</li>
+				<li>在 link 里给 href 的属性添加以下值 anchor: #TB_inline</li>
+				<li>在 href 的属性里的 #TB_inline 之后添加以下 query string : <pre class="exampleCode"><code class="html">?height=300&amp;width=300&amp;inlineId=myOnPageContent</code></pre></li>
+				<li>根据需要更改高和宽的值 (inlineID 是你想要放到 ThickBox 中显示的内容的 ID 值)</li>
+			</ul>
+			<h5>重要提示:</h5>
+			<p>如果在 ThickBox 中要显示的内嵌的内容超出了 ThickBox 的显示区域, 竖向滚动条将会显示. 你要避免出现滚动条就要给 ThickBox 设置一个适当的尺度. 换句话说, 如果你不要滚动条, 就要增加 ThickBox 的高和宽, 直道 ThickBox 不再显示滚动条.</p>
+		</div>
+		<div id="sectiond-2" class="anchor">
+			<p style="padding-top:10px">在 ThickBox 中<a href="#TB_inline?height=300&amp;width=300&amp;inlineId=myOnPageContent" title="add a caption to title attribute / or leave blank" class="thickbox">显示以下三段内容</a>.</p>
+			<div id="myOnPageContent"><p>第一段: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p> 
+			<p>第二段: Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+			<p>第三段: Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p></div>
+		</div>
+		<div id="sectiond-3" class="anchor">
+		<pre class="tabscode" style="height:50px;"><code class="html">&lt;a href=&quot;#TB_inline?height=300&amp;width=300&amp;inlineId=myOnPageContent&quot; title=&quot;add a caption to title attribute / or leave blank&quot; class=&quot;thickbox&quot;&gt;Show&lt;/a&gt;</code></pre>
+		</div>
+	</div>
+	
+	<div id="container-5">
+		<ul class="anchors" style="width:100%">
+			<li><a href="#sectione-1">iFramed 的内容</a></li>
+			<li><a href="#sectione-2">演示</a></li>
+			<li><a href="#sectione-3">html</a></li>
+		</ul>
+		<div id="sectione-1" class="anchor">
+			<h5 class="hfivepadding">描述:</h5>
+			<p>
+			在 ThickBox 中打开被 iFramed URL. 对, 这正 <a href="http://amix.dk/greybox/demo.html">Greybox</a> 功能.</p>
+			<h5>使用说明:</h5>
+			<ul>
+				<li>创建一个 link 元素 (&lt;a href&gt;)</li>
+				<li>给 link 一个 class 属性并附值为 thickbox (class=&quot;thickbox&quot;)</li>
+				<li>在 link 的 href 属性中提供你要在 ThickBox 中显示的 URL.</li>
+				<li>在 href 的属性中 URL 之后添加以下 query: <pre class="exampleCode"><code class="html">?TB_iframe=true&amp;height=400&amp;width=600</code></pre></li>
+				<li>根据需要更改 query 中的高度和宽度的值</li>
+			</ul>
+		</div>
+		<div id="sectione-2" class="anchor">
+			<p><a href="http://www.yahoo.com?TB_iframe=true&amp;height=400&amp;width=600" title="yahoo.com" class="thickbox">yahoo</a>&nbsp;&nbsp;<a href="http://www.google.com?TB_iframe=true&amp;height=400&amp;width=600" title="google.com" class="thickbox">google</a></p>
+		</div>
+		<div id="sectione-3" class="anchor">
+		<pre class="tabscode" style="height:50px;"><code class="html">&lt;a href=&quot;http://www.yahoo.com?TB_iframe=true&amp;height=400&amp;width=600&quot; title=&quot;yahoo.com&quot; class=&quot;thickbox&quot;&gt;yahoo&lt;/a&gt;&nbsp;&nbsp;
+&lt;a href=&quot;http://www.google.com?TB_iframe=true&amp;height=400&amp;width=600&quot; title=&quot;google.com&quot; class=&quot;thickbox&quot;&gt;google&lt;/a&gt;</code></pre>
+		</div>
+	</div>
+
+	<div id="container-6">
+		<ul class="anchors" style="width:100%">
+			<li><a href="#sectionf-1">AJAX 的内容</a></li>
+			<li><a href="#sectionf-2">演示</a></li>
+			<li><a href="#sectionf-3">html</a></li>
+		</ul>
+		<div id="sectionf-1" class="anchor">
+			<h5 class="hfivepadding">描述:</h5>
+			<p>使用隐藏的 HTTP request (AJAX) 来从同一个服务器中获取文件并在 ThickBox 中显示出内容.</p>
+			<h5>使用说明:</h5>
+			<ul>
+				<li>创建一个 link 元素 (&lt;a href&gt;)</li>
+				<li>给 link 一个 class 属性并附值为 thickbox (class=&quot;thickbox&quot;)</li>
+				<li>在 href 中给服务器上的 (.html .htm .cfm .php .asp .aspx .jsp .jst .rb .txt) 文件提供一个路径. (href=&quot;ajaxLogin.htm&quot;) </li>
+				<li>在 href 的属性中, 在文件的 URL 后添加以下 query: <pre class="exampleCode"><code class="html">?height=300&amp;width=300</code></pre></li>
+				<li>根据需要更改 query 中的高度和宽度的值</li>
+			</ul>
+		</div>
+		<div id="sectionf-2" class="anchor">
+			<p><a href="ajaxOverFlow.htm?height=300&amp;width=300" title="add a caption to title attribute / or leave blank" class="thickbox">能使用滚动条的内容</a>&nbsp;&nbsp;
+<a href="ajax.PHP?height=220&amp;width=400" class="thickbox" title="add a caption to title attribute / or leave blank">不能使用滚动条的内容</a>&nbsp;&nbsp;
+<a href="ajaxLogin.htm?height=100&amp;width=250" class="thickbox" title="Please Sign In">登陆窗口</a></p>
+		</div>
+		<div id="sectionf-3" class="anchor">
+		<pre class="tabscode" style="height:75px;"><code class="html">&lt;a href=&quot;ajaxOverFlow.htm?height=300&amp;width=300&quot; title=&quot;add a caption to title attribute / or leave blank&quot; class=&quot;thickbox&quot;&gt;Scrolling content&lt;/a&gt;&nbsp;&nbsp;
+&lt;a href=&quot;ajax.PHP?height=220&amp;width=400&quot; class=&quot;thickbox&quot; title=&quot;add a caption to title attribute / or leave blank&quot;&gt;No-scroll content&lt;/a&gt;&nbsp;&nbsp;
+&lt;a href=&quot;ajaxLogin.htm?height=100&amp;width=250&quot; class=&quot;thickbox&quot; title=&quot;Please Sign In&quot;&gt;login&lt;/a&gt;</code></pre>
+		</div>
+	</div>
+
+	<div style="clear:both"><a href="#" class="BTT">回到顶部</a></div>
+	<p><h5>声明:</h5> 
+	此文版权归<a href="http://www.codylindley.com" style="color:#0099FF">Cody Lindley</a>所有, 由<a href="mailto:minicroc@gmail.com" style="color:#0099FF">croc</a>翻译成中文. 因译者的英文能力有限, 若有翻译不当之处, 请多多包涵! 不要用口水淹我! 谢谢! </p>
+</div>
+<!-- /examples -->
+
+</div><!-- /pageContent -->
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+
+	<head>
+		<script src="http://www.cssrain.cn/demo/JQuery+API/jquery-1[1].2.1.pack.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var cssrain = jQuery.noConflict(true); //������$�Ŀ���Ȩ�öɸ�����⡣�������ȷ��jQuery������������$�������ͻ��
+				alert(cssrain("div").html()); //��  //alert($("div").html());//����
+			});
+		</script>
+		<div>
+			<p>aaaaaaaaaaaaaaaaa</p>
+		</div>
+
+		<!--
+��Ϊʲô�� var cssrain=jQuery.noConflict(true) ��ôд�أ�
+�������ǿ�jQuery��Դ���룺
+noConflict: function( deep ) {
+  window.$ = _$;
+  if ( deep )
+   window.jQuery = _jQuery;
+  return jQuery;
+}
+���� ����deep==true��ʱ�򣬷���jQuery.
+��������var cssrain=jQuery.noConflict(true) ������Ҳ�Ϳ�������ˡ�
+����cssrain�Ϳ��Դ���jQuery�ˡ��Ӷ�ȷ��jQuery������������$�������ͻ��
+
+-->

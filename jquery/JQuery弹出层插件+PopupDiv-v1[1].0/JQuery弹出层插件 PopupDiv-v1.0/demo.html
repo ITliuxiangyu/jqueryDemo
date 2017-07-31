@@ -1,0 +1,441 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>PopupDiv-v1.0 通用自定义弹出层演示</title>
+		<script src="js/jquery-1.3.1.min.js" type="text/javascript"></script>
+		<script src="js/PopupDiv_v1.0.js" type="text/javascript"></script>
+		<script src="js/demo.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="css/demo.css" type="text/css" >
+		<link rel="stylesheet" href="css/PopupDiv.css" type="text/css" >
+	</head>
+	<body>
+		<h1>PopupDiv-v1.0 通用自定义弹出层演示</h1>
+		<h4>by maxcoold 2009-2-29</h4>
+		<h4>bug 提交至：maxcoold@126.com</h4>
+		<hr>
+		<h5>功能说明：</h5>
+		<ol>
+			<li>本插件基于jquery 1.31下编写，请尽量在该库下使用</li>
+			<li>兼容 IE6.0、IE7.0、FIREFOX</li>
+			<li>自动适应需要弹出层的高宽</li>
+			<li>弹出后自动居中</li>
+			<li>自动带标题栏和关闭按钮</li>
+			<li>支持弹出层的鼠标拖动移动，该部分用纯js编写执行效率更高</li>
+			<li>支持ajax加载页面到弹出层</li>
+			<li>支持一个页面，同时弹出多个层互不干扰</li>
+			<li>支持模式化弹出，带遮罩层</li>
+			<li>支持自定义弹出层样式</li>
+			<li>自带3个事件，开启、关闭、移除</li>
+			<li>支持自定义弹出层初始化的参数，例如：设定弹出层位置，长宽，是否需要遮罩层，标题的自定义等等...详情看下面参数表和案例</li>
+			<li>支持自定义事件，如：初始化前事件、初始化后事件、弹出前事件、弹出后事件等等...共8个看下面参数表和案例</li>
+		</ol>
+		<h5>文件列表：</h5>
+		<ul>
+			<li>demo.html ----- 本演示用的html</li>
+			<li>js/PopupDiv_v1.0.js ----- 弹出层插件</li>
+			<li>js/demo.js ----- 本演示用的方法</li>
+			<li>css/PopupDiv.css ----- 弹出层的默认样式</li>
+			<li>css/demo.css ----- 本演示用的样式</li>
+			<li>style/*.gif ----- 弹出层默认样式的图片</li>
+			<li>addXY1_files/* ----- 演示ajax加载的页面</li>
+		</ul>
+		<h5>默认参数列表：</h5>
+		<table border=2 cellpadding=5  bgcolor="#eeeeee" width=98%>
+			<th>参数名</th>
+			<th>类型</th>
+			<th>默认值</th>
+			<th>说明</th>
+			<tbody align="center">				
+					<tr><td>modal</td><td>Boolean </td><td>false</td><td>是否需要遮罩层，默认不使用</td></tr>
+					<tr><td>top</td><td>Number </td><td>null</td><td>弹出的绝对位置，默认居中</td></tr>
+					<tr><td>left</td><td>Number </td><td>null</td><td>弹出的绝对位置，默认居中</td></tr>
+					<tr><td>title</td><td>String </td><td>"提示信息"</td><td>弹出层标题信息</td></tr>
+					<tr><td>closeTitle</td><td>Boolean </td><td>false</td><td>是否不需要标题，默认显示</td></tr>
+					<tr><td>myclass</td><td>String </td><td>"myWrap"</td><td>自定义弹出层样式的class</td></tr>
+					<tr><td>maxHeight</td><td>Number </td><td>null</td><td>自定义最大高，默认适应弹出内容（ie6不支持）</td></tr>
+					<tr><td>maxWidth</td><td>Number </td><td>null</td><td>自定义最大宽，默认适应弹出内容（ie6不支持）</td></tr>
+					<tr><td>minHeight</td><td>Number </td><td>100</td><td>自定义最小高，默认适应弹出内容</td></tr>
+					<tr><td>minWidth</td><td>Number </td><td>150</td><td>自定义最小宽，默认适应弹出内容</td></tr>
+					<tr><td>center</td><td>Boolean </td><td>true</td><td>当弹出层宽度大于弹出内容的时候，内容是否居中，默认居中</td></tr>
+					<tr><td>close_btn</td><td>Boolean </td><td>true</td><td>是否启用右上的关闭按钮关闭,默认启用</td></tr>
+					<tr><td>autoOpen</td><td>Boolean </td><td>true</td><td>加载弹出层完毕后是否自动弹出，默认自动弹出</td></tr>
+					<tr><td>PopupDivId</td><td>String </td><td>"myWrap"</td><td>给嵌套的弹出层加上自定义id，<b>同页面多个弹出层必须指定不同的id</b></td></tr>
+					<tr><td>ajaxUrl</td><td>String </td><td>null</td><td>ajax加载页面到弹出层用，填页面url连接地址</td></tr>
+					<tr><td>start_fn_before</td><td>function </td><td>null</td><td>加载前执行的方法</td></tr>
+					<tr><td>start_fn_later</td><td>function </td><td>null</td><td>加载完毕后执行的方法</td></tr>
+					<tr><td>open_fn_before</td><td>function </td><td>null</td><td>打开前执行的方法</td></tr>
+					<tr><td>open_fn_later</td><td>function </td><td>null</td><td>打开完毕后执行的方法</td></tr>
+					<tr><td>close_fn_before</td><td>function </td><td>null</td><td>关闭前执行的方法</td></tr>
+					<tr><td>close_fn_later</td><td>function </td><td>null</td><td>关闭完毕后执行的方法</td></tr>
+					<tr><td>remove_fn_before</td><td>function </td><td>null</td><td>移除前执行的方法</td></tr>
+					<tr><td>remove_fn_later</td><td>function </td><td>null</td><td>移除完毕后执行的方法</td></tr>														
+			</tbody>
+		</table>
+		<h5>默认事件列表：</h5>
+		<ol>
+			<li>jQueryObject.PopupDiv()-----加载事件，默认加载完毕弹出</li>
+			<li>jQueryObject.PopupDiv("open")-----打开弹出事件</li>
+			<li>jQueryObject.PopupDiv("close")-----关闭弹出事件</li>
+			<li>jQueryObject.PopupDiv("remove")-----移除弹出事件</li>
+		</ol>
+		<p>具体使用方法看下面的案例</p>
+		<h5>基本使用方法：</h5>
+		<h6>最简单的方法是"jQueryObject.PopupDiv()"，jQueryObject是需要弹出的jquery对象。此方法将使用全部的默认参数，并且加载完毕后自动弹出。</h6>
+		
+		<input id="PopupDivBtn_1" type="button" value="基本弹出案例"/>
+		<div  id="PopupDiv_1" style="display:none"><p>基本弹出案例</p><input id="PopupDivBtn_1_off" type="button" value="关闭"/></div>
+		<fieldset>
+		<legend>页面加载的文件：</legend>
+		<textarea style="height:50px" class="texta" readonly="readonly">
+<script src="js/jquery-1.3.1.min.js" type="text/javascript"></script>		
+<script src="js/PopupDiv_v1.0.js" type="text/javascript"></script>
+<link rel="stylesheet" href="css/PopupDiv.css" type="text/css" ></textarea>
+		
+		</fieldset>
+		<fieldset>
+		<legend>HTML代码：</legend>
+		<textarea style="height:50px" class="texta" readonly="readonly">
+<input id="PopupDivBtn_1" type="button" value="基本弹出案例"/>			
+<div id="PopupDiv_1" style="display:none"><p>基本弹出案例1</p></div></textarea>		
+		</fieldset>
+		<fieldset>
+		<legend>JavaScript 代码：</legend>
+		<textarea style="height:50px" class="texta" readonly="readonly">
+$("#PopupDivBtn_1").click(function(){
+        $("#PopupDiv_1").PopupDiv();
+});</textarea>		
+		</fieldset>	
+		<h5>默认事件的运用：</h5>
+		<h6><ul><li>本插件有4个事件，执行的次序为：加载--打开--关闭--移除。</li>
+<li><b>加载：</b>是插件绑定到需要弹出div的过程。</li>
+<li><b>打开：</b>是将弹出div显示在页面上，前提是这个div需要先用插件加载。</li>
+<li><b>关闭：</b>是只是将已经打开的div给隐藏起来,下次打开的时候不用再加载了。前提是这个div是已经弹出在页面上的。</li>
+<li><b>移除：</b>是将已经加载的div，复原到初始加载前的样子，前提是这个div用插件加载完成的（不管是打开状态还是关闭的状态）都可以移除。</li>
+<li>ps：在默认状态下"jQueryObject.PopupDiv()"为插件加载完毕后自动将需要弹出的层打开显示在页面上。也就是加载加打开事件。可通过配置让其只加载不打开。</li>
+<li>弹出层显示后在右上角的“X”按钮是插件自带的关闭事件（可通过设置参数去除这个“X”)注意这个只是关闭不是移除。</li>
+<li>下面这个演示是这4个事件的使用方法，为了区分<b>"加载"</b>和<b>"打开"</b>的区别，我将设置加载后不自动弹出，建议用火狐的firebug插件来看代码的改变</li></ul>	
+		</h6>
+		<input id="PopupDivBtn_21" type="button" value="加载"/>
+		<input id="PopupDivBtn_22" type="button" value="打开"/>	
+		<input id="PopupDivBtn_23" type="button" value="关闭"/>	
+		<input id="PopupDivBtn_24" type="button" value="移除"/>				
+		<div  id="PopupDiv_2" style="display:none"><b>加载--打开--关闭--移除</b></div>
+		<fieldset>
+		<legend>HTML代码：</legend>
+		<textarea style="height:100px" class="texta" readonly="readonly">
+<input id="PopupDivBtn_21" type="button" value="加载"/>
+<input id="PopupDivBtn_22" type="button" value="打开"/>	
+<input id="PopupDivBtn_23" type="button" value="关闭"/>	
+<input id="PopupDivBtn_24" type="button" value="移除"/>			
+<div  id="PopupDiv_2" style="display:none"><b>加载--打开--关闭--移除</b></div></textarea>		
+		</fieldset>
+		<fieldset>
+		<legend>JavaScript 代码：</legend>
+		<textarea style="height:330px" class="texta" readonly="readonly">
+    $("#PopupDivBtn_21").click(function(){
+        $("#PopupDiv_2").PopupDiv({//用自定义的参数加载的事件
+            autoOpen: false,//加载完不打开
+            PopupDivId: "PopupDivOut_2",//因为个演示页面有多个弹出层，所以我给这个加个指定的id号（后面的演示会讲到的）
+            start_fn_later: function(){//加载完成的后我插入的方法（后面的演示会讲到的）
+                alert("加载完成");
+            },
+            remove_fn_later: function(){//移除完成的后我插入的方法（后面的演示会讲到的）
+                alert("移除完毕");
+            }
+        });
+    });
+    $("#PopupDivBtn_22").click(function(){
+        $("#PopupDiv_2").PopupDiv("open");//打开的方法，可以看到当没用加载时，直接使用方法会报错的，嘿嘿
+    });
+    $("#PopupDivBtn_23").click(function(){
+        $("#PopupDiv_2").PopupDiv("close");//关闭的方法，可以看到当没用加载时，直接使用方法会报错的，嘿嘿
+    });
+    $("#PopupDivBtn_24").click(function(){
+        $("#PopupDiv_2").PopupDiv("remove");//移除的方法，可以看到当没用加载时，直接使用方法会报错的，嘿嘿
+    });</textarea>		
+		</fieldset>	
+		<h5>自定义参数的运用：</h5>
+		<h6>本插件可通过自定义的参数，来适应各种弹出层，下面将通过一些案例来演示，因可自定义的参数过多不能一一演示，请灵活变通</h6>
+		<p class="p">自定义标题的弹出层</p>
+		<h6>这个例子结合了加上自定义的标题，同时设定了弹出层的最小高和最小宽的值</h6>
+		<input id="PopupDivBtn_31" type="button" value="自定义标题的弹出层"/>
+		<div  id="PopupDiv_3" style="display:none">自定义标题的弹出层</div>
+		<fieldset>
+		<legend>HTML代码：</legend>
+		<textarea style="height:40px" class="texta" readonly="readonly">
+<input id="PopupDivBtn_31" type="button" value="自定义标题的弹出层"/>
+<div  id="PopupDiv_3" style="display:none">自定义标题的弹出层</div></textarea>		
+		</fieldset>
+		<fieldset>
+		<legend>JavaScript 代码：</legend>
+		<textarea style="height:130px" class="texta" readonly="readonly">
+    $("#PopupDivBtn_31").click(function(){
+        $("#PopupDiv_3").PopupDiv({
+            PopupDivId: "PopupDivOut_3",//因为个演示页面有多个弹出层，所以我给这个加个指定的id号
+            title: "自定义标题的弹出层",//自定义的标题名称
+            minHeight: 200,
+            minWidth: 200
+        });
+    });</textarea>		
+		</fieldset>	
+		<p class="p">N个弹出层在同个页面</p>
+		<h6>本演示将在一个页面上同时弹出N个层，注意“PopupDivId”必须自定义，而且为不同的。同时还将演示自定义绝对位置。</h6>
+		<input id="PopupDivBtn_32" type="button" value="N个弹出层在同个页面"/>
+		<input id="PopupDivBtnRe_32" type="button" value="全部移除"/>
+		<div  id="PopupDiv_321" style="display:none">N个弹出层在同个页面1</div>
+		<div  id="PopupDiv_322" style="display:none">N个弹出层在同个页面2</div>
+		<div  id="PopupDiv_323" style="display:none">N个弹出层在同个页面3</div>
+		<div  id="PopupDiv_324" style="display:none">N个弹出层在同个页面4</div>
+		<div  id="PopupDiv_325" style="display:none">N个弹出层在同个页面5</div>
+		<fieldset>
+		<legend>HTML代码：</legend>
+		<textarea style="height:120px" class="texta" readonly="readonly">
+<input id="PopupDivBtn_32" type="button" value="N个弹出层在同个页面"/>
+<input id="PopupDivBtnRe_32" type="button" value="全部移除"/>
+<div  id="PopupDiv_321" style="display:none">N个弹出层在同个页面1</div>
+<div  id="PopupDiv_322" style="display:none">N个弹出层在同个页面2</div>
+<div  id="PopupDiv_323" style="display:none">N个弹出层在同个页面3</div>
+<div  id="PopupDiv_324" style="display:none">N个弹出层在同个页面4</div>
+<div  id="PopupDiv_325" style="display:none">N个弹出层在同个页面5</div></textarea>		
+		</fieldset>
+		<fieldset>
+		<legend>JavaScript 代码：</legend>
+		<textarea style="height:520px" class="texta" readonly="readonly">
+    $("#PopupDivBtn_32").click(function(){
+        $("#PopupDiv_321").PopupDiv({
+            PopupDivId: "PopupDivOut_321",
+            left: document.documentElement.scrollLeft + 100,
+            top: document.documentElement.scrollTop + 100
+        });
+        $("#PopupDiv_322").PopupDiv({
+            PopupDivId: "PopupDivOut_322",
+            left: document.documentElement.scrollLeft + 200,
+            top: document.documentElement.scrollTop + 200
+        });
+        $("#PopupDiv_323").PopupDiv({
+            PopupDivId: "PopupDivOut_323",
+            left: document.documentElement.scrollLeft + 300,
+            top: document.documentElement.scrollTop + 300
+        });
+        $("#PopupDiv_324").PopupDiv({
+            PopupDivId: "PopupDivOut_324",
+            left: document.documentElement.scrollLeft + 400,
+            top: document.documentElement.scrollTop + 400
+        });
+        $("#PopupDiv_325").PopupDiv({
+            PopupDivId: "PopupDivOut_325",
+            left: document.documentElement.scrollLeft + 500,
+            top: document.documentElement.scrollTop + 500
+        });
+    })
+    $("#PopupDivBtnRe_32").click(function(){
+        $("#PopupDiv_321").PopupDiv("remove");
+        $("#PopupDiv_322").PopupDiv("remove");
+        $("#PopupDiv_323").PopupDiv("remove");
+        $("#PopupDiv_324").PopupDiv("remove");
+        $("#PopupDiv_325").PopupDiv("remove");
+    })</textarea>		
+		</fieldset>	
+		<p class="p">模拟模式对话框</p>
+		<h6>本演示将模拟一个confirm,用一个遮罩层来遮罩住整个页面不让用户操作,并且取消了右上角的叉。</h6>
+		<input id="PopupDivBtn_33" type="button" value="模拟模式对话框"/>
+		<div  id="PopupDiv_33" style="display:none"><p>模拟模式对话框</p><input id="PopupDivBtn_331" type="button" value="确定"/><input id="PopupDivBtn_332" type="button" value="取消"/></div>
+		<fieldset>
+		<legend>HTML代码：</legend>
+		<textarea style="height:60px" class="texta" readonly="readonly">
+<input id="PopupDivBtn_33" type="button" value="模拟模式对话框"/>
+<div  id="PopupDiv_33" style="display:none"><p>模拟模式对话框</p><input id="PopupDivBtn_331" type="button" value="确定"/><input id="PopupDivBtn_332" type="button" value="取消"/></div></textarea>		
+		</fieldset>
+		<fieldset>
+		<legend>JavaScript 代码：</legend>
+		<textarea style="height:230px" class="texta" readonly="readonly">
+	$("#PopupDivBtn_33").click(function(){
+		 $("#PopupDiv_33").PopupDiv({
+		 	PopupDivId: "PopupDivOut_33",
+			modal:true,
+			close_btn:false
+		 });
+	})
+	$("#PopupDivBtn_331").click(function(){
+		alert("确定");
+		$("#PopupDiv_33").PopupDiv("close");
+	})
+	$("#PopupDivBtn_332").click(function(){
+		alert("取消");
+		$("#PopupDiv_33").PopupDiv("close");
+	})</textarea>		
+		</fieldset>
+		<p class="p">ajax加载页面</p>
+		<h6>本演示将另一个页面加载到弹出层中来。</h6>
+		<input id="PopupDivBtn_34" type="button" value="ajax加载页面"/>
+		<div  id="PopupDiv_34" style="display:none"></div>
+		<fieldset>
+		<legend>HTML代码：</legend>
+		<textarea style="height:40px" class="texta" readonly="readonly">
+<input id="PopupDivBtn_34" type="button" value="ajax加载页面"/>
+<div  id="PopupDiv_34" style="display:none"></div></textarea>		
+		</fieldset>
+		<fieldset>
+		<legend>JavaScript 代码：</legend>
+		<textarea style="height:100px" class="texta" readonly="readonly">
+    $("#PopupDivBtn_34").click(function(){
+        $("#PopupDiv_34").PopupDiv({
+            PopupDivId: "PopupDivOut_34",
+            ajaxUrl: "addXY1_files/myXY/addXY1.html"
+        });
+    })</textarea>		
+		</fieldset>
+		<p class="p">自定义样式</p>
+		<h6>本演示将使用自定义样式。“myclass”填入你定义好的class名字（请参照默认css格式来写）。下面是对原css的解释
+		<ul><li>.myWrap ：全框架的样式</li>
+			<li>.myWrap .myTi ：标题栏的样式（这里.myWrap改成自定义全框架的样式的名称，后的.myTi名字不要改动）</li>
+			<li>.myWrap .myTi_l ：标题信息的样式（这里.myWrap改成自定义全框架的样式的名称，后的.myTi_l名字不要改动）</li>
+			<li>.myWrap .myTi_r ：关闭按钮的样式（这里.myWrap改成自定义全框架的样式的名称，后的.myTi_r名字不要改动）</li>
+			<li>.myWrap .close_on ：关闭按钮鼠标移上去的样式（这里.myWrap改成自定义全框架的样式的名称，后的.close_on）</li>
+			<li>.myWrap .close_out ：关闭按钮鼠标离开的样式（这里.myWrap改成自定义全框架的样式的名称，后的.close_out）</li></ul>
+		</h6>
+		<input id="PopupDivBtn_35" type="button" value="自定义样式"/>
+		<div  id="PopupDiv_35" style="display:none">自定义样式</div>
+		<fieldset>
+		<legend>HTML代码：</legend>
+		<textarea style="height:40px" class="texta" readonly="readonly">
+<input id="PopupDivBtn_35" type="button" value="自定义样式"/>
+<div  id="PopupDiv_35" style="display:none">自定义样式</div></textarea>		
+		</fieldset>
+		<fieldset>
+		<legend>css代码：</legend>
+		<textarea style="height:650px" class="texta" readonly="readonly">
+.myWrap2 {
+    display:none;
+    border: 1px;
+    border-color: #5380a5;
+    border-style:solid;
+	background-color:#fff;
+    overflow:auto;
+	margin: 0px;
+    padding: 0px;
+}
+.myWrap2 .myTi{
+	background-image:url(../style/ti_b2.gif) ;
+	height:26px;
+}
+.myWrap2 .myTi_l{
+	display: block; 
+	position:relative;
+	float:left;	
+	color:#0b5b98;	
+	padding-top:7px;
+	font-size:12px;
+	text-indent:10px;
+	font-weight:bold;
+	white-space:nowrap; 
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+.myWrap2 .myTi_r{
+	position:relative;
+	float:right;
+	width:35px;
+	height:18px;
+	cursor:pointer;
+}
+.myWrap2 .close_on{
+	background-image:url(../style/close_on2.gif);
+	background-repeat:no-repeat;
+}
+.myWrap2 .close_out{
+	background-image:url(../style/close2.gif);
+	background-repeat:no-repeat;
+}</textarea>
+		</fieldset>
+		<fieldset>
+		<legend>JavaScript 代码：</legend>
+		<textarea style="height:100px" class="texta" readonly="readonly">
+    $("#PopupDivBtn_35").click(function(){
+        $("#PopupDiv_35").PopupDiv({
+            PopupDivId: "PopupDivOut_35",
+            myclass: "myWrap2"
+        });
+    })</textarea>		
+		</fieldset>
+		<p class="p">插入事件</p>
+		<h6>本演示将通过alert()来表达状态。请注意弹出的提示信息,可以了解插件的运行机制</h6>
+		<input id="PopupDivBtn_36" type="button" value="插入事件"/>
+		<div  id="PopupDiv_36" style="display:none">本演示将通过alert()来表达状态<br><input id="PopupDivBtn_361" type="button" value="移除弹出"/></div>
+		<fieldset>
+		<legend>HTML代码：</legend>
+		<textarea style="height:50px" class="texta" readonly="readonly">
+<input id="PopupDivBtn_36" type="button" value="插入事件"/>
+<div  id="PopupDiv_36" style="display:none">本演示将通过alert()来表达状态<br><input id="PopupDivBtn_361" type="button" value="移除弹出"/></div></textarea>		
+		</fieldset>
+		<fieldset>
+		<legend>JavaScript 代码：</legend>
+		<textarea style="height:500px" class="texta" readonly="readonly">
+    $("#PopupDivBtn_36").click(function(){
+        $("#PopupDiv_36").PopupDiv({
+            PopupDivId: "PopupDivOut_36",
+            close_fn_before: function(){
+				alert("关闭前执行的方法");
+            },
+            close_fn_later: function(){
+				alert("关闭完毕后执行的方法");
+            },
+            start_fn_before: function(){
+				alert("加载前执行的方法");
+            },
+            start_fn_later: function(){
+				alert("加载完毕后执行的方法");
+            },
+            open_fn_before: function(){
+				alert("打开前执行的方法");
+            },
+            open_fn_later: function(){
+				alert("打开完毕后执行的方法");
+            },
+            remove_fn_before: function(){
+				alert("移除前执行的方法");
+            },
+            remove_fn_later: function(){
+				alert("移除完毕后执行的方法");
+            }
+        });
+    })
+	$("#PopupDivBtn_361").click(function(){
+		$("#PopupDiv_36").PopupDiv("remove");
+	})</textarea>		
+		</fieldset>
+		<p class="p">其他用法，选择提示层</p>
+		<h6>可以用本插件完成提示层的功能或下拉菜单的功能</h6>
+		<a id="PopupDivBtn_37" href="#"/>鼠标移到这里</a>
+		<div  id="PopupDiv_37" style="display:none">可以用本插件完成提示层的功能1<br>可以用本插件完成提示层的功能2<br>可以用本插件完成提示层的功能3<br>可以用本插件完成提示层的功能4<br></div>
+		<fieldset>
+		<legend>HTML代码：</legend>
+		<textarea style="height:50px" class="texta" readonly="readonly">
+<a id="PopupDivBtn_37" href="#"/>鼠标移到这里</a>
+<div  id="PopupDiv_37" style="display:none">可以用本插件完成提示层的功能1<br>可以用本插件完成提示层的功能2<br>可以用本插件完成提示层的功能3<br>可以用本插件完成提示层的功能4<br></div></textarea>		
+		</fieldset>
+		<fieldset>
+		<legend>JavaScript 代码：</legend>
+		<textarea style="height:300px" class="texta" readonly="readonly">
+    var t;
+    $("#PopupDivBtn_37").hover(function(){
+        var offset = $("#PopupDivBtn_37").offset();
+        $("#PopupDiv_37").PopupDiv({
+            closeTitle: true,
+            minHeight: 0,
+            top: offset.top + $("#PopupDivBtn_37").height(),
+            left: offset.left
+        })
+    }, function(){
+        t = setTimeout('$("#PopupDiv_37").PopupDiv("close")', 1000)
+    })
+    $("#PopupDiv_37").hover(function(){
+        clearTimeout(t);
+        $("#PopupDiv_37").PopupDiv("open");
+    }, function(){
+        $("#PopupDiv_37").PopupDiv("close");
+    })</textarea>		
+		</fieldset>	
+	</body>
+</html>

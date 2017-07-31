@@ -1,0 +1,27 @@
+<!--<script src="http://www.cssrain.cn/demo/JQuery+API/jquery-1[1].2.1.pack.js" type="text/javascript">-->
+	<script src="jquery-1.1.3.pack.js" type="text/javascript">
+</script>
+
+<script language="javascript">
+	$(function() {
+		var tempArr1 = $.map([0, 1, 2], function(i) {
+			return i + 4;
+		});
+		var tempArr2 = $.map([0, 1, 2], function(i) {
+			return i > 0 ? i + 1 : null;
+		});
+		alert(tempArr1); //tempArr1 ����Ϊ��[4,5,6]
+		alert(tempArr2); //tempArr2 ����Ϊ��[2,3]
+		var tempArr3 = $.merge([0, 1, 2], [2, 3, 4]);
+		alert(tempArr3); //tempArr3 ����Ϊ�� [0,1,2,2,3,4] //�Σ�1.2���������ȥ���ˣ���֪����ʲô���棬��ʱû�ҵ��������ҵ��Ŀ��Ը����ҡ�
+	});
+</script>
+<div id="c0">aaaa</div>
+<div id="c1">bbbb</div>
+<div id="c2">cccc</div>
+<!--
+$.map(array, fn)������ӳ�䡣��һ�������е���Ŀ(����ת����)���浽����һ���������У���������ɵ������顣
+
+$.merge(arr1,arr2):�ϲ��������鲢ɾ�������ظ�����Ŀ��
+
+-->

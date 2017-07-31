@@ -1,0 +1,36 @@
+<SCRIPT LANGUAGE="JavaScript">
+	<!--
+	//one way
+	function cssrain1() {
+		if(document.getElementById("userid")) {
+			alert("����!");
+		} else {
+			alert("������!");
+		}
+	}
+	//another way:
+	function cssrain2() {
+		var domDlg = document.getElementById("userid");
+		if(null != domDlg) {
+			alert("����!");
+		} else {
+			alert("������!");
+		}
+	}
+	//do well:
+	function cssrain3() {
+		var domDlg = document.getElementById("userid");
+		if(null != domDlg && domDlg) {
+			alert("����!");
+		} else {
+			alert("������!");
+		}
+	}
+	//-->
+	//jquery������. $("#userid")
+</SCRIPT>
+<input type="button" value=".." onclick="cssrain1();">
+<input type="button" value=".." onclick="cssrain2();">
+<input type="button" value=".." onclick="cssrain3();">
+<input type="text" id="userid" value="id=userid">
+<input type="text" id="userid2" value="id=userid2">

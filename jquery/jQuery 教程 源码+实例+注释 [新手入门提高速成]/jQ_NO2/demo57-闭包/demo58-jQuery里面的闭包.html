@@ -1,0 +1,51 @@
+<html>
+
+	<head>
+		<script src="http://www.cssrain.cn/demo/JQuery+API/jquery-1[1].2.1.pack.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				jQuery.noConflict(); //��$�öɸ��������
+				(function($) {
+					$("div p").click(function() {
+						alert("cssrain!")
+					});
+				})(jQuery); //һ���հ�
+			});
+			//ʵ�������$ֻ�Ǹ��βζ��� ,����Ĳ�����jQuery. ���Ե�����prototype�����$ʱ��������ͻ��
+		</script>
+
+		<div>
+			<p>aaaaaaaaaaaaaaaaa</p>
+		</div>
+
+		<!--
+
+jQuery.noConflict(); //��$�öɸ��������
+function tempFunction($){  //����һ����$Ϊ�βεĺ���
+     $("div p").show();
+}
+TempFunction(jQuery);//����ʵ��jQueryִ�к���.
+
+
+
+
+
+
+
+(function((){do someting})();
+���������Ϊ����һ������������ִ��
+upc-jq 21:26:59
+�����Ļ�������
+(function((�β�){do someting})(ʵ��);
+
+
+(function(){var upc="i am upc"})();
+alert(upc);
+����ʾundefined
+
+
+�ô��ǲ����Ӷ����ȫ�ֱ���
+ִ�й�������б����������������ڲ�
+
+
+-->

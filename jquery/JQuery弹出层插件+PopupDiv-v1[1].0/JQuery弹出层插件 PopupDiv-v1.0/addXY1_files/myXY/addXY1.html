@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Untitled Document</title>
+        <link href="addXY1_files/css/addXY1.css" type="text/css" rel="stylesheet">
+	    <script src="addXY1_files/js/addXY1.js" type="text/javascript"></script>
+    </head>
+    <body>
+    	<div class="addXY_out">
+        <ul id="add_Xy1" class="add_Xy1">
+            <li class="sel_li">
+                基本设置
+            </li>
+            <li class="sel_li">
+                发送条数设置
+            </li>
+            <li class="sel_li">
+               时间段设置
+            </li>
+           
+        </ul>
+        <div class="addXY_fragment">
+            <div id="addXY_fragment-0">
+                <p>
+                    心语内容：
+                </p>
+                <textarea class="add_XYcontent_txa">
+                </textarea>
+				<div class="f0_btn">
+                <input type="button" value="确 定" /> <input type="button" value="取 消" />
+            	</div>
+            </div>
+            <div id="addXY_fragment-1">
+                <ul>
+                    <li class="addXY_fragment-1_li">
+                        优先级：
+                        <select class="addXY_fg_r_width">
+                            <option selected="selected">高</option>
+                            <option>中</option>
+                            <option>低</option>
+                        </select>
+                    </li>
+                    <li class="addXY_fragment-1_li">
+                        <a href="#">发送到我的手机</a>，我要预览！
+                    </li>
+                    <li class="addXY_fragment-1_li">
+                        （预览资费标准：按照号码所在地的短信费用标准收取，详情请咨询当地联通公司！）
+                    </li>
+                </ul>
+            </div>
+            <div id="addXY_fragment-2" style="display:none">
+                <ul>
+                    <li class="addXY_fragment-1_li">
+                        输入框只能填数字，0表示不限！
+                    </li>
+                    <li class="addXY_fragment-1_li">
+                        每天最多发送<input class="addXY_fg_r_width" type="text"/>条
+                    </li>
+                    <li class="addXY_fragment-1_li">
+                        向每主叫最多发送<input class="addXY_fg_r_width" type="text"/>条
+                    </li>
+                    <li class="addXY_fragment-1_li">
+                        每天向每主叫发送<input class="addXY_fg_r_width" type="text"/>条
+                    </li>
+                    <li class="addXY_fragment-1_li">
+                        修改前向每个主叫发送<input class="addXY_fg_r_width" type="text"/>条
+                    </li>
+                </ul>
+            </div>
+            <div id="addXY_fragment-3" style="display:none">
+                <table>
+                    <tr>
+                        <td class="td_txtR">
+                            时间类型：
+                        </td>
+                        <td>
+                            <input checked="checked" name="addXY_time_type" type="radio" value="1" />全天时间段
+                        </td>
+                        <td>
+                            <input name="addXY_time_type" type="radio" value="2" />每天时间段
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input name="addXY_time_type" type="radio" value="3" />特殊日期
+                        </td>
+                        <td>
+                            <input name="addXY_time_type" type="radio" value="4" />每周时间段
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input name="addXY_time_type" type="radio" value="5" />每月时间段
+                        </td>
+                        <td>
+                            <input name="addXY_time_type" type="radio" value="6" />每年时间段
+                        </td>
+                    </tr>
+                    <tr id="time_t2" style="display:none">
+                        <td class="td_txtR">
+                            播放时间：
+                        </td>
+                        <td colspan="2">
+                            <div class="add_r3_tt2">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="time_t3" style="display:none">
+                        <td class="td_txtR">
+                            播放时间：
+                        </td>
+                        <td colspan="2">
+                            <input class="addXY_fg_r_width" type="text" />&nbsp;至&nbsp;<input class="addXY_fg_r_width" type="text" />
+                        </td>
+                    </tr>
+                    <tr id="time_t4" style="display:none">
+                        <td class="td_txtR">
+                            播放时间：
+                        </td>
+                        <td colspan="2">
+                            <select class="addXY_fg_r_width">
+                                <option selected="selected" value="星期一">星期一</option>
+                                <option value="星期二">星期二</option>
+                                <option value="星期三">星期三</option>
+                                <option value="星期四">星期四</option>
+                                <option value="星期五">星期五</option>
+                                <option value="星期六">星期六</option>
+                                <option value="星期日">星期日</option>
+                            </select>&nbsp;至&nbsp;
+                            <select class="addXY_fg_r_width">
+                                <option value="星期一">星期一</option>
+                                <option value="星期二">星期二</option>
+                                <option value="星期三">星期三</option>
+                                <option value="星期四">星期四</option>
+                                <option value="星期五">星期五</option>
+                                <option value="星期六">星期六</option>
+                                <option selected="selected" value="星期日">星期日</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="time_t5" style="display:none">
+                        <td class="td_txtR">
+                            播放时间：
+                        </td>
+                        <td colspan="2">
+                            <select class="addXY_fg_r_width">
+                                <option selected="selected" value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>&nbsp;至&nbsp;
+                            <select class="addXY_fg_r_width">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option selected="selected" value="31">31</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="time_t6">
+                        <td class="td_txtR">
+                            播放时间：
+                        </td>
+                        <td colspan="2">
+                            <select class="addXY_fg_r_width">
+                                <option selected="selected" value="1月">1月</option>
+                                <option value="2月">2月</option>
+                                <option value="3月">3月</option>
+                                <option value="4月">4月</option>
+                                <option value="5月">5月</option>
+                                <option value="6月">6月</option>
+                                <option value="7月">7月</option>
+                                <option value="8月">8月</option>
+                                <option value="9月">9月</option>
+                                <option value="10月">10月</option>
+                                <option value="11月">11月</option>
+                                <option value="12月">12月</option>
+                            </select>&nbsp;至&nbsp;
+                            <select class="addXY_fg_r_width">
+                                <option value="1月">1月</option>
+                                <option value="2月">2月</option>
+                                <option value="3月">3月</option>
+                                <option value="4月">4月</option>
+                                <option value="5月">5月</option>
+                                <option value="6月">6月</option>
+                                <option value="7月">7月</option>
+                                <option value="8月">8月</option>
+                                <option value="9月">9月</option>
+                                <option value="10月">10月</option>
+                                <option value="11月">11月</option>
+                                <option selected="selected" value="12月">12月</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            
+        </div>
+		</div>
+    </body>
+</html>
